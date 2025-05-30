@@ -1,0 +1,32 @@
+{% extends 'coffeeapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body he>
+{% block content %}
+    <h1>SIGN UP PAGE</h1>
+    <div style="padding-left: 50px">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% for field in signForm %}
+                {{ field.label }}
+                {{ field }}
+                <br/>
+                {% for error in field.errors %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endfor %}
+                <br/>
+            {% endfor %}
+            <input class="btn btn-warning" type="submit" name = "Create Customer">
+        </form>
+    </div>
+
+
+    Already have an account? <a href = {% url 'login' %}>Login here!</a>
+
+{% endblock %}
+</body>
+</html>

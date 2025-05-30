@@ -1,0 +1,31 @@
+{% extends 'coffeeapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>
+            Username: <input type="text" name="username" placeholder="Username..." class="form-control">
+        </div>
+        <br/>
+        <div>
+            Password: <input type="password" name="password" placeholder="Password..." class="form-control" >
+        </div>
+        <br/>
+        <div>
+            <input class="btn btn-warning" type="submit" value="Login">
+        </div>
+    </form>
+    {% for message in messages %}
+        <p class="text-success">{{ message }}</p>
+    {% endfor %}
+    Dont have an account? <a href = {% url 'signup' %}>Register here!</a>
+
+{% endblock %}
+</body>
+</html>

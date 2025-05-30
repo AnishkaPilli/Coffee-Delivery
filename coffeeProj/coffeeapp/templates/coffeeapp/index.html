@@ -1,0 +1,67 @@
+{% extends 'coffeeapp/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<h1 class="display-1" style="text-align: center">⁂MENU⁂</h1>
+
+<form action="{% url 'searchresults' %}" method="get">
+    <div class="row g-2">
+      <div class="col-md">
+        Search by name:
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" id="floatingInput" name="name" placeholder="Search by name" aria-describedby="basic-addon1">
+          </div>
+      </div>
+      <div class="col-md">
+        Search by category:
+        <select name="cat" class="form-select mb-3">
+          <option value="All">All</option>
+          {% for type in categories %}
+              <option value="{{ type.id }}">{{ type.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-warning btn-block">Search</button></div>
+</form>
+<br/>
+<br/>
+{% if items.count == 0 %}
+        No items found
+{% else %}
+    {% for message in messages %}
+        <p style="color: green; background-color: palegreen">{{ message }}</p>
+    {% endfor %}
+    <form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-5">
+            {% for item in items %}
+                <div class="col">
+                <div class="card border-primary mb-3" style="border-width: 3px; width: 18rem;">
+                  <img style="border: 10px double midnightblue;" height="270px" width="150px" src="{{ item.image.url }}" class="card-img-top" alt="img">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ item.ItemName }}</h5>
+                    <p class="card-text">{{ item.ItemPrice }} AED</p>
+                    <p class="card-text">Category: {{ item.category }}</p>
+                    <p class="card-text"> Quantity: <input type="number" max="4" min="0" value="0" name="q{{ item.id }}"></p>
+                      <div class="mx-auto"><button class="btn btn-warning btn-block" name="addToCart{{ item.id }}" value="{{ item.id }}">Add To Cart</button></div>
+                  </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    </form>
+{% endif %}
+
+{% endblock %}
+</body>
+</html>

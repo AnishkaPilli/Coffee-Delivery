@@ -1,0 +1,19 @@
+{% extends 'coffeeapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+<h1 class="display-1 text-center">Thank you for ordering through COFFEESHOP!</h1>
+
+<form action="{% url 'index' %}" method="get">
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-warning btn-block">Back to Menu</button>
+    </div>
+</form>
+{% endblock %}
+</body>
+</html>

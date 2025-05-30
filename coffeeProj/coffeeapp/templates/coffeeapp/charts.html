@@ -1,0 +1,70 @@
+{% extends 'coffeeapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    {% block content %}
+    <h1 class='display-3 text-center'>CHARTS</h1>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            // Define the chart to be drawn.
+
+            var data = google.visualization.arrayToDataTable([
+                [{ label: 'Item', type: 'string' },
+                { label: 'Quantity Sold', type: 'number' }],
+                {% for i in item %}
+                    ['{{ i.ItemName }}', {{ i.quantity_sold }}],
+                {% endfor %}
+        ]);
+        var options = {
+            'title': 'MOST ORDERED DRINKS',
+            'width': 700,
+            'height': 700,
+            'is3D': true,
+        };
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.PieChart(document.getElementById('myPieChart'));
+        chart.draw(data, options);
+
+
+        var data2 = google.visualization.arrayToDataTable([
+            [{ label: 'Category', type: 'string' },
+            { label: 'Quantity Sold', type: 'number' },
+            { role: 'style' }],
+            {% for c, q in cat_total.items %}
+                ['{{ c }}',{{ q }}, 'opacity: 0.5; stroke-width: 5; stroke-color: #01a0ff;fill-color: #fff600'],
+            {% endfor %}
+        ]);
+        var options2 = {
+            'title': 'MOST ORDERED CATEGORIES',
+            'width': 700,
+            'height': 700,
+            'colors': ['#fff600'],
+        };
+        // Instantiate and draw the chart.
+        var chart2 = new google.visualization.BarChart(document.getElementById('myBarChart'));
+        chart2.draw(data2, options2);
+        }
+
+    </script>
+
+    <!--Div that will hold the pie chart-->
+
+    <div class="d-flex justify-content-center" id="myPieChart"></div>
+    <hr>
+    <div class="d-flex justify-content-center" id="myBarChart"></div>
+    {%endblock%}
+
+
+</body>
+
+</html>

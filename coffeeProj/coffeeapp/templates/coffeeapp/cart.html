@@ -1,0 +1,53 @@
+{% extends 'coffeeapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% block content %}
+{% if cart is not None %}
+    <h4 class="display-4">Cart:</h4>
+    <table class="table table-info table-hover">
+    <thead align="center" style="vertical-align:middle">
+        <th>ItemName</th>
+        <th>Quantity to buy</th>
+        <th>Price</th>
+        <th></th>
+    </thead>
+    {% for k,v in cart.items %}
+        <tr align="center" style="vertical-align:middle">
+            <td><b>{{ k }}</b></td>
+            {% for k1,v1 in v.items %}
+                {% if k1 == 'quantity' %}
+                    <td>{{ v1 }}</td>
+                {% elif k1 == 'price' %}
+                    <td>{{ v1 }} AED</td>
+                {% endif %}
+            {% endfor %}
+            <form action="" method="get">
+                <td><button type="submit" class="btn btn-danger" name="{{ k }}" value="True">Remove</button></td>
+            </form>
+        </tr>
+    {% endfor %}
+</table>
+    <div class="alert alert-info clearfix">
+        <form action="{% url 'cart' %}" method="get">
+            <button type="submit" class="btn btn-warning btn-lg float-start" name="Clear" value="True">Clear</button>
+        </form>
+        <p class="text-end">Total Price: {{ totalPrice }} AED</p>
+        <form action="{% url 'checkout' %}" method="get">
+            <button type="submit" class="btn btn-warning btn-lg float-end">Checkout</button>
+            <input type="hidden" name="fromCheck" value="True">
+        </form>
+    </div>
+
+{% else %}
+    <h4 class="display-4">Your cart is empty</h4>
+{% endif %}
+<a href="{% url 'index' %}" class="btn btn-warning btn-lg float-center">Return Back to Menu</a>
+{% endblock %}
+</body>
+</html>

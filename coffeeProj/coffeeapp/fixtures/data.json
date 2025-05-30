@@ -1,0 +1,226 @@
+[
+  {
+    "model": "coffeeapp.Category",
+    "pk": 1,
+    "fields": {
+        "name": "Hot Coffee"
+    }
+  },
+  {
+    "model": "coffeeapp.Category",
+    "pk": 2,
+    "fields": {
+        "name": "Cold Coffee"
+    }
+  },
+  {
+    "model": "coffeeapp.Category",
+    "pk": 3,
+    "fields": {
+        "name": "Teas"
+    }
+  },
+  {
+    "model": "coffeeapp.Category",
+    "pk": 4,
+    "fields": {
+        "name": "Chocolate Drinks"
+    }
+  },
+  {
+    "model": "coffeeapp.Category",
+    "pk": 5,
+    "fields": {
+        "name": "Refreshments"
+    }
+  },
+    {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Espresso",
+      "image": "/Espresso.JPG",
+      "category": 1,
+      "ItemPrice": 10.50
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Cappuccino",
+      "image": "/Cappucino.jpg",
+      "category": 1,
+      "ItemPrice": 15.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Black Coffee",
+      "image": "/BlkCoffee.jpg",
+      "category": 1,
+      "ItemPrice": 12.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Cafe Latte",
+      "image": "/CafeLatte.jpg",
+      "category": 1,
+      "ItemPrice": 12.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Mocha",
+      "image": "/Mocha.jpg",
+      "category": 1,
+      "ItemPrice": 12.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Iced Americano",
+      "image": "/IcedAmer.jpg",
+      "category": 2,
+      "ItemPrice": 15.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Iced Caramel Macchiato",
+      "image": "/IcedCarMac.jpg",
+      "category": 2,
+      "ItemPrice": 15.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Cold Brew",
+      "image": "/ColdBrew.jpg",
+      "category": 2,
+      "ItemPrice": 13.50
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Iced Latte",
+      "image": "/IcedLatte.jpg",
+      "category": 2,
+      "ItemPrice": 13.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Mocha Frappuccino",
+      "image": "/MochaFrap.png",
+      "category": 2,
+      "ItemPrice": 13.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "White Tea",
+      "image": "/WhiteTea.jpg",
+      "category": 3,
+      "ItemPrice": 16.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Green Tea",
+      "image": "/GreenTea.jpg",
+      "category": 3,
+      "ItemPrice": 14.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Black Tea",
+      "image": "/BlackTea.jpg",
+      "category": 3,
+      "ItemPrice": 12.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Chai",
+      "image": "/Chai.png",
+      "category": 3,
+      "ItemPrice": 14.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Milk Tea",
+      "image": "/MilkTea.png",
+      "category": 3,
+      "ItemPrice": 20.50
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Hot Chocolate",
+      "image": "/HotChoc.jpeg",
+      "category": 4,
+      "ItemPrice": 15.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Hot White Chocolate",
+      "image": "/HotWhiteChoc.png",
+      "category": 4,
+      "ItemPrice": 17.50
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Chocolate Milkshake",
+      "image": "/ChocMilkshake.jpg",
+      "category": 4,
+      "ItemPrice": 15.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Lemonade",
+      "image": "/Lemonade.jpg",
+      "category": 5,
+      "ItemPrice": 10.50
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Strawberry Lemonade",
+      "image": "/SBLemonade.jpeg",
+      "category": 5,
+      "ItemPrice": 12.00
+    }
+  },
+  {
+    "model": "coffeeapp.Item",
+    "fields": {
+      "ItemName": "Berry Refresher",
+      "image": "/BerryRef.jpg",
+      "category": 5,
+      "ItemPrice": 12.00
+    }
+  }
+]

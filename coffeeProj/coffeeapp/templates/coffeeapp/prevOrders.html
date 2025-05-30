@@ -1,0 +1,53 @@
+{% extends 'coffeeapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  {% block content %}
+  <h1 class="display-3 text-center">PREVIOUS ORDERS</h1>
+  <div class="container">
+    <div class="row">
+      {% for order,item in prevOrders.items %}
+      <div class="card text-dark bg-warning mb-3">
+        <div class="card-header ">
+          <p class="display-6">Order ID: #{{ order.order_id }}</p>
+          <b>Date: {{ order.OrderDate }}</b><br />
+          <b>Order Total: {{ order.TotalPrice }} AED</b>
+        </div>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <div class="container">
+              {% for k,v in item.items %}
+                <div class="row">
+                  <div class="col order-first">
+                    <b>{{k.ItemName}}</b>
+                  </div>
+                  {% for k1,v1 in v.items %}
+                    {% if k1 == 'quantity' %}
+                      <div class="col">
+                        Quantity: {{ v1 }}
+                      </div>
+                    {% elif k1 == 'price' %}
+                      <div class="col order-last">
+                        Price: {{ v1 }} AED
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endfor %}
+            </div>
+          </blockquote>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+</body>
+
+</html>

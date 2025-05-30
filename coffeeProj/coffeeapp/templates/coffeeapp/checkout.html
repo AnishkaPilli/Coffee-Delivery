@@ -1,0 +1,37 @@
+{% extends 'coffeeapp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block content %}
+    <h6 class = "display-6">Dear {{ customer.first_name }} {{ customer.last_name }}</h6>
+    <br/>
+    <h6 class = "display-6">Here's your order:</h6>
+    {% for k,v in cart.items %}
+        {{ k }}
+        {% for k1,v1 in v.items %}
+            {% if k1 == 'quantity' %}
+                Quantity: {{ v1 }}
+            {% elif k1 == 'price' %}
+                Price: {{ v1 }} AED
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <br/><br/><br/>
+    <h6 class = "display-6">It will be delivered to this address:</h6>
+    <textarea placeholder="Enter your address here..." class="form-control" name = "userAddress" rows="3"></textarea>
+    
+    <p class = "display-6">Payment will be cash on delivery only! (no credit/debit cards accepted)</p>
+    <form action="{% url 'order' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning btn-lg float-end" name="order" value="True">Confirm Order</button>
+    </form>
+    <form action="{% url 'cart' %}" method="get">
+        <button type="submit" class="btn btn-warning btn-lg float-start">Back to Cart</button>
+    </form>
+{% endblock %}
+</body>
+</html>
